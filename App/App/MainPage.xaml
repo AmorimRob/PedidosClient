@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:App">
+
+    <StackLayout Margin="20">
+        <Label Text="Nome" />
+        <Entry Placeholder="Nome do cliente" Text="{Binding Pedido.Nome}" />
+
+        <Label Text="Produto" />
+        <Entry Placeholder="Produto" Text="{Binding Pedido.Produto}" />
+
+
+        <Label Text="Valor" />
+        <Entry Placeholder="Valor do pedido" Text="{Binding Pedido.Valor}" />
+
+        <Button
+            Command="{Binding EnviarPedidoCommand}"
+            Text="Enviar Pedido"
+            VerticalOptions="FillAndExpand" />
+
+
+        <ListView Margin="0,10,0,0" ItemsSource="{Binding Pedidos}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Nome}" />
+                            <Label Text="{Binding Produto}" />
+                            <Label Text="{Binding Valor}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
